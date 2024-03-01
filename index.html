@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css" -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
+        integrity="sha384-4LISF5TTJX/fLmGSxO53rV4miRxdg84mZsxmO8Rx5jGtp/LbrixFETvWa5a6sESd" crossorigin="anonymous">
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        .nav_icon {
+            display: none;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            height: 60px;
+            padding: 10px 30px;
+            justify-content: space-between;
+            color: azure;
+            background: #2fd08c;
+            box-shadow: 1px 2px 2px #2fd08c;
+            margin-bottom: 3px;
+        }
+
+        nav ul {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            list-style: none;
+            gap: 20px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: azure;
+
+        }
+
+        main {
+            background-image: url("Rectangle\ 2.png");
+            position: relative;
+            width: 100%;
+            height: 35vw;
+            background-size: cover;
+            background-position: center;
+            color: azure;
+        }
+
+        .sec2 {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            
+            background-color: #2fd08c;
+            color: #d02f72b5;
+            margin: 60px;
+            padding: 3vw;
+            border: 2px solid #2fd08c;
+            border-radius: 10px;
+
+        }
+
+        form {
+            display: grid;
+            grid-template-columns: 4fr 6fr;
+
+        }
+
+        form label {
+            font-weight: bold;
+            font-family: 'Times New Roman', Times, serif;
+            margin-right: 15px;
+        }
+
+        form .input1 {
+            margin-bottom: 20px;
+            height: 25px;
+            border: 1px solid #2fd08c;
+            padding: 10px;
+            outline: 0.5px solid #D02F73;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+
+        button {
+            background-color: #D02F73;
+            padding: 10px;
+            margin-top: 10px;
+            border: 2px solid #D02F73;
+            color: #2fd08c;
+            font-weight: bold;
+        }
+
+        form select {
+            padding: 7px;
+            border-radius: 10px;
+            color: rgb(118, 118, 118);
+            margin-bottom: 15px;
+        }
+
+        option {
+            color: black;
+        }
+
+        form textarea {
+            margin-bottom: 15px;
+        }
+
+        footer {
+            background-color: #2fd08c;
+            padding: 20px;
+            display: grid;
+            grid-template-columns: 5fr 4fr 3fr;
+        }
+
+        .part1 {
+            width: 30vw;
+        }
+
+        .sec3 {
+            padding: 2vw;
+        }
+
+        .sec3 h2 {
+            text-align: center;
+            margin-bottom: 10px;
+            font-weight: bold;
+            font-size: 4vw;
+        }
+
+        .sec3 p {
+            text-align: justify;
+            font-family: 'Courier New', Courier, monospace;
+            line-height: 3vw;
+        }
+
+        @media screen and (max-width: 450px) {
+            .nav_icon {
+                display: block;
+            }
+
+            .items {
+                display: none;
+            }
+
+            nav {
+                height: 50px;
+                padding: 10px 10px;
+                border: 2px solid #2fd08c;
+                display: flex;
+                align-items: center;
+                color: azure;
+                justify-content: space-between;
+                background-color: #2fd08c;
+                box-shadow: 1px 4px 5px #2fd08c;
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+
+            .sec2 {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-evenly;
+                background-color: #2fd08c;
+                color: #d02f72b5;
+                margin: 30px;
+                padding: 3vw;
+                border: 2px solid #2fd08c;
+                border-radius: 10px;
+
+            }
+
+            .sec2 h3 {
+                margin-bottom: 10px;
+            }
+
+            form {
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            form label {
+               
+                font-weight: bold;
+                font-family: 'Times New Roman', Times, serif;
+            }
+
+            form .input1 {
+                height: 25px;
+                border: 1px solid #2fd08c;
+                padding: 10px;
+                outline: 0.5px solid #D02F73;
+                border-radius: 10px;
+
+                margin-bottom: 0px;
+
+            }
+
+
+            button {
+                background-color: #D02F73;
+                padding: 10px;
+                margin-top: 10px;
+                border: 2px solid #D02F73;
+                color: #2fd08c;
+                font-weight: bold;
+            }
+
+            form select {
+                padding: 7px;
+                border-radius: 10px;
+                color: rgb(118, 118, 118);
+                margin-bottom: 0px;
+
+            }
+
+            option {
+                color: black;
+            }
+
+            .sec3 p {
+
+                line-height: 6vw;
+            }
+
+            footer {
+                background-color: #2fd08c;
+                padding: 10px;
+            }
+
+            footer h3 {
+                color: #D02F73;
+                font-family: Arial, Helvetica, sans-serif;
+
+                margin: 7px 0;
+            }
+
+            footer p {
+                color: rgb(81, 79, 79);
+            }
+
+            .part2 {
+                color: rgb(81, 79, 79);
+                font-weight: bold;
+                margin-bottom: 10px;
+            }
+
+            .part3 h2 {
+                color: #D02F73;
+                font-weight: bold;
+                margin-bottom: 10px;
+            }
+
+            .part3 button {
+                padding: 10px;
+                display: block;
+            }
+
+            footer {
+                display: block;
+            }
+
+            .part1 {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="wrapper">
+        <header>
+            <nav>
+                <h3>Logo</h3>
+                <div class="nav_icon">
+                    <i class="bi bi-list"></i>
+                </div>
+                <ul class="items">
+                    <li><a href="">Home</a></li>
+                    <li><a href="">About</a></li>
+                    <li><a href="">Contact Us</a></li>
+                    <li><a href="">Help</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <section class="sec1">
+            <main>
+                <h2>Computer Engineeering</h2>
+                <p>142,765 Computer Engineers follow this</p>
+            </main>
+
+        </section>
+
+        <section class="sec2">
+            <h3
+                style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; text-align:center; margin-bottom: 20px;">
+                Sign Up</h3>
+            <form action="">
+                <label for="email">Enter Your Email Addresss: </label>
+                <input type="text" name="email" id="email" placeholder="Enter Email Address" class="input1">
+                <label for="pass">Enter Password: </label>
+                <input type="password" name="pass" id="pass" placeholder="Enter Password" class="input1">
+                <label for="re_pass">Re-enter Password: </label>
+                <input type="password" name="pass" id="re_pass" placeholder="Re-enter Password" class="input1">
+                <label for="gender">Choose Your Gender</label>
+                <select name="gender" id="gender">
+                    <option value="NA" selected>Choose Gender</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                </select>
+                <label for="description">Describe Yourself</label>
+                <textarea name="description" id="description" cols="30" rows="10"
+                    style="border-radius: 10px;"></textarea>
+                <p>Please select your age:</p>
+                <div>
+                    <input type="radio" id="age1" name="age" value="30">
+                    <label for="age1">0 - 30</label><br>
+                    <input type="radio" id="age2" name="age" value="60">
+                    <label for="age2">31 - 60</label><br>
+                    <input type="radio" id="age3" name="age" value="100">
+                    <label for="age3">61 - 100</label><br><br>
+                </div>
+                <button type="button">Log In</button>
+            </form>
+        </section>
+        <section class="sec3">
+            <h2>Let's Understand</h2>
+            <p>Lorem ipsum
+                dolor sit amet, consectetur adipisicing elit. Commodi perferendis tempore facere recusandae provident
+                eaque? Perspiciatis sapiente ad voluptatibus accusamus, officia libero dolore enim dicta ratione
+                officiis magnam eaque illo. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nulla iure neque
+                itaque est? Ex consectetur vitae commodi adipisci modi nisi, eveniet error labore magnam inventore est
+                ipsam quos temporibus dolorum? Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus rem
+                officia porro quasi nemo eos placeat cumque ad corporis architecto illo ullam doloremque quas, fugiat
+                necessitatibus pariatur tempore eveniet minus! Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                Illo quia alias at minus vero ut molestias sint eveniet veritatis. Obcaecati assumenda, dolores quas
+                delectus soluta libero enim possimus ea voluptatem? Lorem ipsum dolor sit amet consectetur adipisicing
+                elit. Eius perferendis reprehenderit cumque molestias? Sequi veniam corporis rerum dolore debitis.
+                Perferendis inventore incidunt aliquid ducimus dolores velit dolor voluptas fuga earum.</p>
+        </section>
+        <footer>
+            <div class="part1">
+                <h3>Logo</h3>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Hic temporibus eligendi amet saepe
+                    doloremque provident eaque alias in facilis sit minima voluptatum, quod consequatur fugit excepturi
+                    animi nobis quam molestias. Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure adipisci
+                    culpa tempora voluptatibus! Quasi aliquid laborum sit aspernatur, totam earum sunt velit eius,
+                    itaque cum ad impedit in consequuntur ducimus!</p>
+            </div>
+            <div class="part2">
+                <h3>Contact Us</h3>
+                <i class="bi bi-telephone"></i> <span>+919813080816</span> <br> <br>
+                <i class="bi bi-geo-alt"></i> <span>Yamunanagar, India</span> <br> <br>
+                <i class="bi bi-envelope"></i> <span> xyz@gmail.com</span>
+            </div>
+            <div class="part3">
+                <h2>Subscribe Newsletter</h2>
+                <input type="email" style="padding: 5px;">
+                <button>Subscribe</button>
+            </div>
+        </footer>
+    </div>
+</body>
+
+</html>
