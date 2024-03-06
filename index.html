@@ -37,8 +37,6 @@
             justify-content: center;
             list-style: none;
             gap: 20px;
-
-
         }
 
 
@@ -47,11 +45,12 @@
             color: azure;
 
         }
-        #navCross{
+
+        #navCross {
             display: none;
         }
 
-        /*main {
+        main {
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -64,7 +63,7 @@
             background-size: cover;
             background-position: center;
             color: azure;
-        }*/
+        }
 
         .sec2 {
             display: flex;
@@ -188,8 +187,10 @@
                 align-items: center;
                 flex-direction: column;
                 text-align: center;
+                display: none;
             }
-            #navCross{
+
+            #navCross {
                 display: block;
             }
 
@@ -294,8 +295,8 @@
             </nav>
         </header>
 
-        <section class="sec1">
-            <main>
+        <section id="sec1">
+            <main id="bgImg">
                 <h2>Computer Engineeering</h2>
                 <p>142,765 Computer Engineers follow this</p>
             </main>
@@ -307,21 +308,29 @@
                 style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; text-align:center; margin-bottom: 20px;">
                 Sign Up</h3>
             <form action="">
+                <label for="userName">Enter Your Name: </label>
+                <input type="text" name="userName" id="userName" placeholder="Enter Your Name" class="input1">
+
                 <label for="email">Enter Your Email Addresss: </label>
                 <input type="text" name="email" id="email" placeholder="Enter Email Address" class="input1">
+
                 <label for="pass">Enter Password: </label>
                 <input type="password" name="pass" id="pass" placeholder="Enter Password" class="input1">
+
                 <label for="re_pass">Re-enter Password: </label>
                 <input type="password" name="pass" id="re_pass" placeholder="Re-enter Password" class="input1">
+
                 <label for="gender">Choose Your Gender</label>
                 <select name="gender" id="gender">
                     <option value="NA" selected>Choose Gender</option>
                     <option value="Male">Male</option>
                     <option value="Female">Female</option>
                 </select>
+
                 <label for="description">Describe Yourself</label>
                 <textarea name="description" id="description" cols="30" rows="10"
                     style="border-radius: 10px;"></textarea>
+                    
                 <p>Please select your age:</p>
                 <div>
                     <input type="radio" id="age1" name="age" value="30">
@@ -331,7 +340,7 @@
                     <input type="radio" id="age3" name="age" value="100">
                     <label for="age3">61 - 100</label><br><br>
                 </div>
-                <button type="button">Log In</button>
+                <button type="button" onclick="validate()" id="logInBtn">Log In</button>
             </form>
         </section>
         <section class="sec3">
@@ -373,12 +382,21 @@
     </div>
     <script>
         var button = document.getElementById("items");
+        var bgImg = document.getElementById("sec1");
         function openNav() {
-            button.style.display = "inline-block";
+            button.style.display = "inline";
+            bgImg.style.display = "none";
             button.style.display = "flex";
         }
         function hideNav() {
+            bgImg.style.display = "block";
             button.style.display = "none";
+        }
+        function validate(){
+            const USER_NAME = document.getElementById("userName").value;
+            if(USER_NAME.length<=3){
+                alert("Please Enter a Valid User Name");
+            }
         }
     </script>
 </body>
