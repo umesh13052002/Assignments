@@ -37,15 +37,21 @@
             justify-content: center;
             list-style: none;
             gap: 20px;
+
+
         }
+
 
         nav ul li a {
             text-decoration: none;
             color: azure;
 
         }
+        #navCross{
+            display: none;
+        }
 
-        main {
+        /*main {
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -58,20 +64,19 @@
             background-size: cover;
             background-position: center;
             color: azure;
-        }
+        }*/
 
         .sec2 {
             display: flex;
             flex-direction: column;
             justify-content: center;
-            
+
             background-color: #2fd08c;
             color: #d02f72b5;
             margin: 60px;
             padding: 3vw;
             border: 2px solid #2fd08c;
             border-radius: 10px;
-
         }
 
         form {
@@ -112,8 +117,6 @@
             margin-bottom: 15px;
         }
 
-       
-
         form textarea {
             margin-bottom: 15px;
         }
@@ -128,18 +131,22 @@
         .part1 {
             width: 30vw;
         }
-        .part1 h3{
+
+        .part1 h3 {
             color: #D02F73;
             margin-bottom: 10px;
         }
-        .part2 h3{
+
+        .part2 h3 {
             color: #D02F73;
             margin-bottom: 10px;
         }
-        .part3 h2{
+
+        .part3 h2 {
             color: #D02F73;
             margin-bottom: 10px;
         }
+
         .sec3 {
             padding: 2vw;
         }
@@ -162,11 +169,32 @@
                 display: block;
             }
 
-            .items {
-                display: none;
+            #navCross {
+                position: absolute;
+                top: 0;
+                right: 0;
+            }
+
+            #items {
+                width: 100vw;
+                height: 100vh;
+                background-color: #fff;
+                position: absolute;
+                display: flex;
+                top: 0;
+                left: 0;
+                background-color: #2fd08c;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                text-align: center;
+            }
+            #navCross{
+                display: block;
             }
 
             nav {
+                position: relative;
                 height: 50px;
                 padding: 10px 10px;
                 border: 2px solid #2fd08c;
@@ -231,13 +259,16 @@
                 font-weight: bold;
                 margin-bottom: 10px;
             }
+
             .part3 button {
                 padding: 10px;
                 display: block;
             }
+
             footer {
                 display: block;
             }
+
             .part1 {
                 width: 100%;
             }
@@ -248,12 +279,13 @@
 <body>
     <div id="wrapper">
         <header>
-            <nav>
+            <nav id="navBar">
                 <h3>Logo</h3>
                 <div class="nav_icon">
-                    <i class="bi bi-list"></i>
+                    <button type="button" onclick="openNav()" id="navBtn"><i class="bi bi-list"></i></button>
                 </div>
-                <ul class="items">
+                <ul id="items">
+                    <button type="button" id="navCross" onclick="hideNav()"><i class="bi bi-x-circle"></i></button>
                     <li><a href="">Home</a></li>
                     <li><a href="">About</a></li>
                     <li><a href="">Contact Us</a></li>
@@ -339,6 +371,16 @@
             </div>
         </footer>
     </div>
+    <script>
+        var button = document.getElementById("items");
+        function openNav() {
+            button.style.display = "inline-block";
+            button.style.display = "flex";
+        }
+        function hideNav() {
+            button.style.display = "none";
+        }
+    </script>
 </body>
 
 </html>
