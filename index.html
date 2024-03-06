@@ -394,8 +394,13 @@
         }
         function validate(){
             const USER_NAME = document.getElementById("userName").value;
+            const EMAIL_ID = document.getElementById("email").value;
             if(USER_NAME.length<=3){
                 alert("Please Enter a Valid User Name");
+            }
+            
+            if(EMAIL_ID.includes('@') == false){
+                alert("Please Enter a Valid Email Address");
             }
         }
     </script>
