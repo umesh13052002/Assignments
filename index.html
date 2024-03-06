@@ -315,10 +315,10 @@
                 <input type="text" name="email" id="email" placeholder="Enter Email Address" class="input1">
 
                 <label for="pass">Enter Password: </label>
-                <input type="password" name="pass" id="pass" placeholder="Enter Password" class="input1">
+                <input type="text" name="pass" id="pass" placeholder="Enter Password" class="input1">
 
                 <label for="re_pass">Re-enter Password: </label>
-                <input type="password" name="pass" id="re_pass" placeholder="Re-enter Password" class="input1">
+                <input type="text" name="pass" id="re_pass" placeholder="Re-enter Password" class="input1">
 
                 <label for="gender">Choose Your Gender</label>
                 <select name="gender" id="gender">
@@ -395,6 +395,8 @@
         function validate(){
             const USER_NAME = document.getElementById("userName").value;
             const EMAIL_ID = document.getElementById("email").value;
+            const PASSWORD = document.getElementById("pass").value;
+            var regexPass = /(?=.*[A-Z])(?=.*\w)\w{4,10}/;
             if(USER_NAME.length<=3){
                 alert("Please Enter a Valid User Name");
             }
@@ -402,6 +404,12 @@
             if(EMAIL_ID.includes('@') == false){
                 alert("Please Enter a Valid Email Address");
             }
+            if(PASSWORD.match(regexPass)){
+                console.log("Password format Matched");
+            } else{
+                alert("Please Enter Strong Password");
+            }
+            
         }
     </script>
 </body>
