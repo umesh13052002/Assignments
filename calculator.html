@@ -11,11 +11,14 @@
     <div id="wrapper">
         <h3>Calculator</h3>
         <form action="">
-            <label for="inp1">Enter Number 1</label>
-            <input type="text" id="inp1" name="inp1">
+            <div id="form">
+                <label for="inp1">Enter Number 1</label>
+                <input type="text" id="inp1" name="inp1"> <br>
 
-            <label for="inp2">Enter Number 2</label>
-            <input type="text" id="inp2" name="inp2">
+                <label for="inp2">Enter Number 2</label>
+                <input type="text" id="inp2" name="inp2"> <br>
+            </div>
+            <input type="button" name="" id="add" value="Add More">
 
             <p>Select One Operator</p>
             <label for="op1">+</label>
@@ -33,38 +36,81 @@
 
     <script>
         var btn = document.getElementById("calBtn");
+        var addBtn = document.getElementById("add");
         btn.addEventListener('click', calcfunc);
+        addBtn.addEventListener('click', addMore);
         var message = "";
+        let current = 2;
+
+        function addMore() {
+            current++;
+            var addMsg = document.getElementById("addMsg");
+            var mess = "";
+            if (current <= 8) {
+                var form = document.getElementById("form");
+                var label = document.createElement("label");
+                label.setAttribute("for" ,"inp"+current)
+                var input = document.createElement("input");
+                input.setAttribute("id" , "inp"+current);
+                input.setAttribute("name" , "inp"+current);
+
+                var newLine = document.createElement("div");
+                label.innerText = "Enter Number " + current;
+                form.appendChild(label);
+                form.appendChild(input);
+                form.appendChild(newLine);
+            }
+            else {
+                alert("You Can Not Add More Numbers");
+
+            }
+
+        }
         function calcfunc() {
-            const INP1 = parseInt(document.getElementById("inp1").value);
-            const INP2 = parseInt(document.getElementById("inp2").value);
             let output = document.getElementById("output");
             let op1 = document.getElementById("op1");
             let op2 = document.getElementById("op2");
             let op3 = document.getElementById("op3");
             let op4 = document.getElementById("op4");
+            let sum = 0;
+           
             let result = 0;
+            let values = []; 
+            for(let id = 1; id<=current; id++){
+                let value = parseInt(document.getElementById("inp" + id).value);
+                values.push(value);
+            }
 
             if (op1.checked) {
-                result = INP1 + INP2;
+                for(item of values){
+                    sum+=item;
+                }
+                message = sum;
+                output.innerHTML = message;
+            }
+            if (op2.checked) {
+                let difference = values[0];
+                for (let i = 1; i < values.length; i++) {
+                    difference -= values[i];
+                }
+                message = difference;
+                output.innerHTML = message;
+            }
+            
+            if (op3.checked) {
+                let produduct = 1;
+                for (let i = 0; i < values.length; i++){
+                    produduct *= values[i];
+                }
+                message = produduct;
+                output.innerHTML = message;
+            }
+            /*output.innerHTML = message;
+            if (op4.checked) {
+                result = inp1 / inp2;
                 message = result;
             }
-            output.innerHTML = message;
-            if(op2.checked){
-                result = INP1-INP2;
-                message = result;
-            }
-            output.innerHTML = message;
-            if(op3.checked){
-                result = INP1*INP2;
-                message = result;
-            }
-            output.innerHTML = message;
-            if(op4.checked){
-                result = INP1/INP2;
-                message = result;
-            }
-            output.innerHTML = message;
+            output.innerHTML = message;*/
         }
 
     </script>
