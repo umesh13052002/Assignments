@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+</head>
+
+<body>
+    <div id="wrapper">
+        <h3>Calculator</h3>
+        <form action="">
+            <label for="inp1">Enter Number 1</label>
+            <input type="text" id="inp1" name="inp1">
+
+            <label for="inp2">Enter Number 2</label>
+            <input type="text" id="inp2" name="inp2">
+
+            <p>Select One Operator</p>
+            <label for="op1">+</label>
+            <input type="radio" name="operator" id="op1" value="addition"> <br>
+            <label for="op2">-</label>
+            <input type="radio" name="operator" id="op2" value="subtraction"> <br>
+            <label for="op1">*</label>
+            <input type="radio" name="operator" id="op3" value="addition"> <br>
+            <label for="op1">/</label>
+            <input type="radio" name="operator" id="op4" value="addition"> <br>
+            <input type="button" id="calBtn" value="Calculate">
+        </form>
+        <h4 id="output"></h4>
+    </div>
+
+    <script>
+        var btn = document.getElementById("calBtn");
+        btn.addEventListener('click', calcfunc);
+        var message = "";
+        function calcfunc() {
+            const INP1 = parseInt(document.getElementById("inp1").value);
+            const INP2 = parseInt(document.getElementById("inp2").value);
+            let output = document.getElementById("output");
+            let op1 = document.getElementById("op1");
+            let op2 = document.getElementById("op2");
+            let op3 = document.getElementById("op3");
+            let op4 = document.getElementById("op4");
+            let result = 0;
+
+            if (op1.checked) {
+                result = INP1 + INP2;
+                message = result;
+            }
+            output.innerHTML = message;
+            if(op2.checked){
+                result = INP1-INP2;
+                message = result;
+            }
+            output.innerHTML = message;
+            if(op3.checked){
+                result = INP1*INP2;
+                message = result;
+            }
+            output.innerHTML = message;
+            if(op4.checked){
+                result = INP1/INP2;
+                message = result;
+            }
+            output.innerHTML = message;
+        }
+
+    </script>
+</body>
+
+</html>
