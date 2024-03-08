@@ -210,6 +210,10 @@
 
         @media screen and (max-width: 768px) {
 
+            #items{
+                display: inline;
+            }
+
             .sec2 {
                 display: flex;
                 flex-direction: column;
@@ -384,7 +388,7 @@
         var button = document.getElementById("items");
         var bgImg = document.getElementById("sec1");
         function openNav() {
-            button.style.display = "inline";
+            // button.style.display = "inline";
             bgImg.style.display = "none";
             button.style.display = "flex";
         }

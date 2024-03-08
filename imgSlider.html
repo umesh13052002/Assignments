@@ -93,7 +93,7 @@
     </div>
     <script>
         let flag = 0;
-        
+
         var slide = document.getElementsByClassName("slide");
         console.log(slide);
         slideShow(flag);
@@ -101,7 +101,7 @@
             slide[num].style.display = "block";
         }
         function back() {
-            if (flag>0) {
+            if (flag > 0) {
                 slide[flag].style.display = "none";
                 flag--;
                 slideShow(flag);
@@ -109,18 +109,19 @@
         }
 
         function forward() {
-            if (flag<=3) {
+            console.log(flag);
+            if (flag < 3) {
                 slide[flag].style.display = "none";
                 flag++;
                 slideShow(flag);
-                console.log(flag);
+                
             }
-            if(flag==3){
+            else if (flag == 3) {
                 slide[flag].style.display = "none";
                 flag = 0;
                 slideShow(flag);
             }
-            
+
         }
     </script>
 </body>
