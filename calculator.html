@@ -135,7 +135,8 @@
         addBtn.addEventListener('click', addMore);
         var message = "";
         let current = 2;
-
+        var inp = document.querySelectorAll("input");
+        
         function addMore() {
             current++;
             var addMsg = document.getElementById("addMsg");
@@ -167,6 +168,10 @@
             let op3 = document.getElementById("op3");
             let op4 = document.getElementById("op4");
             let sum = 0;
+            if(isNaN(inp)){
+                message = "Please Enter a valid Number";
+                output.innerHTML = message;
+            }
 
             let result = 0;
             let values = [];
