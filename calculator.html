@@ -6,32 +6,126 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculator</title>
 </head>
+<style>
+    * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        background: linear-gradient(90deg, rgba(42, 147, 172, 1) 0%, rgba(83, 230, 147, 1) 33%, rgba(0, 212, 255, 1) 100%);
+    }
+
+    #wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        flex-direction: column;
+
+    }
+
+    #container {
+        padding: 20px;
+        border: 2px dashed #09a4a1;
+        min-width: 35vw;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: 450px;
+        transition: all 0.3s ease-in;
+        overflow-y: auto;
+
+    }
+
+    #container::-webkit-scrollbar {
+        display: none;
+    }
+
+    #container {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+
+    #container:hover {
+        transform: scale(1.03);
+    }
+
+    #wrapper h3 {
+        margin: 25px 0vw;
+        font-size: 30px;
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        text-transform: uppercase;
+    }
+
+    label {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-style: italic;
+        margin-bottom: 5px;
+    }
+
+    input {
+        padding: auto;
+        height: 30px;
+        outline: none;
+        border-radius: 5px;
+        margin-bottom: 5px;
+        border: 1px solid #09a4a1;
+    }
+
+    #add,
+    #calBtn {
+        margin-top: 10px;
+        margin-bottom: 10px;
+        background: linear-gradient(90deg, rgba(42, 147, 172, 1) 0%, rgba(83, 230, 147, 1) 33%, rgba(0, 212, 255, 1) 100%);
+        padding: 7px;
+        min-width: 9vw;
+    }
+
+    #operatorHeading {
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    }
+
+    #operatorDiv {
+        display: flex;
+        align-items: center;
+        gap: 1vw;
+        justify-content: center;
+        margin: 10px 0;
+    }
+</style>
 
 <body>
     <div id="wrapper">
-        <h3>Calculator</h3>
-        <form action="">
-            <div id="form">
-                <label for="inp1">Enter Number 1</label>
-                <input type="text" id="inp1" name="inp1"> <br>
+        <div id="container">
+            <h3>Calculator</h3>
+            <form action="">
+                <div id="form">
+                    <label for="inp1">Enter Number 1</label>
+                    <input type="text" id="inp1" name="inp1"> <br>
 
-                <label for="inp2">Enter Number 2</label>
-                <input type="text" id="inp2" name="inp2"> <br>
-            </div>
-            <input type="button" name="" id="add" value="Add More">
+                    <label for="inp2">Enter Number 2</label>
+                    <input type="text" id="inp2" name="inp2"> <br>
+                </div>
+                <input type="button" name="" id="add" value="Add More">
 
-            <p>Select One Operator</p>
-            <label for="op1">+</label>
-            <input type="radio" name="operator" id="op1" value="addition"> <br>
-            <label for="op2">-</label>
-            <input type="radio" name="operator" id="op2" value="subtraction"> <br>
-            <label for="op1">*</label>
-            <input type="radio" name="operator" id="op3" value="addition"> <br>
-            <label for="op1">/</label>
-            <input type="radio" name="operator" id="op4" value="addition"> <br>
-            <input type="button" id="calBtn" value="Calculate">
-        </form>
-        <h4 id="output"></h4>
+                <p id="operatorHeading">Select One Operator</p>
+                <div id="operatorDiv">
+                    <label for="op1">+</label>
+                    <input type="radio" name="operator" id="op1" value="addition"> <br>
+                    <label for="op2">-</label>
+                    <input type="radio" name="operator" id="op2" value="subtraction"> <br>
+                    <label for="op1">*</label>
+                    <input type="radio" name="operator" id="op3" value="addition"> <br>
+                    <label for="op1">/</label>
+                    <input type="radio" name="operator" id="op4" value="addition"> <br>
+
+                </div>
+                <input type="button" id="calBtn" value="Calculate">
+            </form>
+            <h4 id="output"></h4>
+        </div>
     </div>
 
     <script>
@@ -49,13 +143,13 @@
             if (current <= 8) {
                 var form = document.getElementById("form");
                 var label = document.createElement("label");
-                label.setAttribute("for" ,"inp"+current)
+                label.setAttribute("for", "inp" + current)
                 var input = document.createElement("input");
-                input.setAttribute("id" , "inp"+current);
-                input.setAttribute("name" , "inp"+current);
+                input.setAttribute("id", "inp" + current);
+                input.setAttribute("name", "inp" + current);
 
                 var newLine = document.createElement("div");
-                label.innerText = "Enter Number " + current;
+                label.innerText = "Enter Number " + current + " ";
                 form.appendChild(label);
                 form.appendChild(input);
                 form.appendChild(newLine);
@@ -73,17 +167,17 @@
             let op3 = document.getElementById("op3");
             let op4 = document.getElementById("op4");
             let sum = 0;
-           
+
             let result = 0;
-            let values = []; 
-            for(let id = 1; id<=current; id++){
+            let values = [];
+            for (let id = 1; id <= current; id++) {
                 let value = parseInt(document.getElementById("inp" + id).value);
                 values.push(value);
             }
 
             if (op1.checked) {
-                for(item of values){
-                    sum+=item;
+                for (item of values) {
+                    sum += item;
                 }
                 message = sum;
                 output.innerHTML = message;
@@ -96,10 +190,10 @@
                 message = difference;
                 output.innerHTML = message;
             }
-            
+
             if (op3.checked) {
                 let produduct = 1;
-                for (let i = 0; i < values.length; i++){
+                for (let i = 0; i < values.length; i++) {
                     produduct *= values[i];
                 }
                 message = produduct;
@@ -107,11 +201,11 @@
             }
             if (op4.checked) {
                 let quot = values[0];
-                for(let i = 1; i<values.length; i++){
-                   if(quot !=0 ){
-                    quot /= values[i];
-                   }
-                   
+                for (let i = 1; i < values.length; i++) {
+                    if (quot != 0) {
+                        quot /= values[i];
+                    }
+
                 }
                 message = quot;
                 output.innerHTML = message;
