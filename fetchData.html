@@ -44,21 +44,7 @@
 
         </thead>
         <tbody id="table_body">
-            <tr>
-                <td>
-
-                </td>
-                <td>
-
-                </td>
-                <td>
-
-                </td>
-                <td>
-
-                </td>
-
-            </tr>
+            
         </tbody>
     </table>
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
@@ -72,13 +58,29 @@
         crossorigin="anonymous"></script>
 
     <script>
-    fetch("https://fakestoreapi.com/products/1").then((data) => {
+    fetch("https://fakestoreapi.com/products/1").then((data)=>{
         return data.json();
     }).then((objectData) => {
-        console.log(objectData[10]);
+        let table = "";
+        objectData.map((values)=>{
+            table +=`<tr>
+                <td>
+                    ${values.title};
+                </td>
+                <td>
+                    ${values.description};
+                </td>
+                <td>
+                    ${values.category};
+                </td>
+                <td>
+                    ${values.image};
+                </td>
+            </tr>`
+        });
+        let table_body = document.getElementById("table_body");
+        table_body.innerHTML = table;
     })
-        
-    
     </script>
 </body>
 
