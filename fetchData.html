@@ -72,16 +72,13 @@
         crossorigin="anonymous"></script>
 
     <script>
-        fetch("https://fakestoreapi.com/products/1").then((data) => {
-            return data.json();
-        }).then((objectData) => {
-            console.log(objectData);
-            console.log(objectData.category);
-            console.log(objectData.description);
-            // console.log(objectData[10]);
-        })
-
-
+    fetch("https://fakestoreapi.com/products/1").then((data) => {
+        return data.json();
+    }).then((objectData) => {
+        console.log(objectData[10]);
+    })
+        
+    
     </script>
 </body>
 

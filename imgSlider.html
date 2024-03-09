@@ -94,8 +94,9 @@
     <script>
         let flag = 0;
 
+
         var slide = document.getElementsByClassName("slide");
-        console.log(slide);
+
         slideShow(flag);
         function slideShow(num) {
             slide[num].style.display = "block";
@@ -106,17 +107,22 @@
                 flag--;
                 slideShow(flag);
             }
+            else if(flag == 0){
+                slide[flag].style.display = "none";
+                flag=3;
+                slideShow(flag);
+            }
+
         }
 
         function forward() {
-            console.log(flag);
-            if (flag < 3) {
+            if (flag< 3) {
                 slide[flag].style.display = "none";
                 flag++;
                 slideShow(flag);
-                
+                console.log(flag);
             }
-            else if (flag == 3) {
+            else if(flag==3){
                 slide[flag].style.display = "none";
                 flag = 0;
                 slideShow(flag);

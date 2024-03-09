@@ -43,7 +43,6 @@
         nav ul li a {
             text-decoration: none;
             color: azure;
-
         }
 
         #navCross {
@@ -64,7 +63,9 @@
             background-position: center;
             color: azure;
         }
-
+        #itemsMob{
+            display: none;
+        }
         .sec2 {
             display: flex;
             flex-direction: column;
@@ -100,7 +101,7 @@
             margin-bottom: 15px;
         }
 
-        button {
+        .button {
             background-color: #D02F73;
             padding: 10px;
             margin-top: 10px;
@@ -173,8 +174,11 @@
                 top: 0;
                 right: 0;
             }
+            #items{
+                display: none;
+            }
 
-            #items {
+            #itemsMob {
                 width: 100vw;
                 height: 100vh;
                 background-color: #fff;
@@ -289,8 +293,14 @@
                 <div class="nav_icon">
                     <button type="button" onclick="openNav()" id="navBtn"><i class="bi bi-list"></i></button>
                 </div>
-                <ul id="items">
+                <ul id="itemsMob">
                     <button type="button" id="navCross" onclick="hideNav()"><i class="bi bi-x-circle"></i></button>
+                    <li><a href="">Home</a></li>
+                    <li><a href="">About</a></li>
+                    <li><a href="">Contact Us</a></li>
+                    <li><a href="">Help</a></li>
+                </ul>
+                <ul id="items">
                     <li><a href="">Home</a></li>
                     <li><a href="">About</a></li>
                     <li><a href="">Contact Us</a></li>
@@ -344,7 +354,7 @@
                     <input type="radio" id="age3" name="age" value="100">
                     <label for="age3">61 - 100</label><br><br>
                 </div>
-                <button type="button" onclick="validate()" id="logInBtn">Log In</button>
+                <button type="button" class="button" onclick="validate()" id="logInBtn">Log In</button>
             </form>
         </section>
         <section class="sec3">
@@ -380,12 +390,12 @@
             <div class="part3">
                 <h2>Subscribe Newsletter</h2>
                 <input type="email" style="padding: 5px;">
-                <button>Subscribe</button>
+                <button class="button">Subscribe</button>
             </div>
         </footer>
     </div>
     <script>
-        var button = document.getElementById("items");
+        var button = document.getElementById("itemsMob");
         var bgImg = document.getElementById("sec1");
         function openNav() {
             // button.style.display = "inline";
@@ -400,9 +410,13 @@
             const USER_NAME = document.getElementById("userName").value;
             const EMAIL_ID = document.getElementById("email").value;
             const PASSWORD = document.getElementById("pass").value;
-            var regexPass = /(?=.*[A-Z])(?=.*\w)\w{4,10}/;
-            if(USER_NAME.length<=3){
-                alert("Please Enter a Valid User Name");
+            const REPASSWORD = document.getElementById("re_pass").value;
+            const regexuser = /(?=.[A-Z])[a-z]{3,12}/;
+            const regexPass = /(?=.*[A-Z])(?=.*\w)\w{4,10}/;
+            if(USER_NAME.match(regexuser)){
+                console.log("User Name Format Matched");
+            } else{
+                alert("Please Enter Valid User Name");
             }
             
             if(EMAIL_ID.includes('@') == false){
@@ -413,7 +427,11 @@
             } else{
                 alert("Please Enter Strong Password");
             }
-            
+            if(REPASSWORD.match(regexPass)){
+                console.log("Password format Matched");
+            } else{
+                alert("Please Confirm Your Password");
+            }
         }
     </script>
 </body>
