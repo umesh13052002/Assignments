@@ -305,7 +305,6 @@
                 </ul>
             </nav>
         </header>
-
         <section id="sec1">
             <main id="bgImg">
                 <h2>Computer Engineeering</h2>
@@ -396,8 +395,8 @@
         var bgImg = document.getElementById("sec1");
         function openNav() {
             // button.style.display = "inline";
-            bgImg.style.display = "none";
             mobItems.style.display = "flex";
+            mobItems.style.zIndex = "5";
         }
         function hideNav() {
             bgImg.style.display = "block";
