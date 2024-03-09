@@ -187,7 +187,7 @@
                 message = sum;
                 output.innerHTML = message;
             }
-            if (op2.checked) {
+            else if (op2.checked) {
                 let difference = values[0];
                 for (let i = 1; i < values.length; i++) {
                     difference -= values[i];
@@ -196,7 +196,7 @@
                 output.innerHTML = message;
             }
 
-            if (op3.checked) {
+           else if (op3.checked) {
                 let produduct = 1;
                 for (let i = 0; i < values.length; i++) {
                     produduct *= values[i];
@@ -204,7 +204,7 @@
                 message = produduct;
                 output.innerHTML = message;
             }
-            if (op4.checked) {
+           else  if (op4.checked) {
                 let quot = values[0];
                 for (let i = 1; i < values.length; i++) {
                     if (quot != 0) {
@@ -213,6 +213,10 @@
 
                 }
                 message = quot;
+                output.innerHTML = message;
+            }
+            else {
+                message = "Please Select any one Operator";
                 output.innerHTML = message;
             }
 
