@@ -214,9 +214,6 @@
 
         @media screen and (max-width: 768px) {
 
-            #items{
-                display: inline;
-            }
 
             .sec2 {
                 display: flex;
@@ -395,16 +392,16 @@
         </footer>
     </div>
     <script>
-        var button = document.getElementById("itemsMob");
+        var mobItems = document.getElementById("itemsMob");
         var bgImg = document.getElementById("sec1");
         function openNav() {
             // button.style.display = "inline";
             bgImg.style.display = "none";
-            button.style.display = "flex";
+            mobItems.style.display = "flex";
         }
         function hideNav() {
             bgImg.style.display = "block";
-            button.style.display = "none";
+            mobItems.style.display = "none";
         }
         function validate(){
             const USER_NAME = document.getElementById("userName").value;
