@@ -105,12 +105,18 @@
                 message = produduct;
                 output.innerHTML = message;
             }
-            /*output.innerHTML = message;
             if (op4.checked) {
-                result = inp1 / inp2;
-                message = result;
+                let quot = values[0];
+                for(let i = 1; i<values.length; i++){
+                   if(quot !=0 ){
+                    quot /= values[i];
+                   }
+                   
+                }
+                message = quot;
+                output.innerHTML = message;
             }
-            output.innerHTML = message;*/
+
         }
 
     </script>
