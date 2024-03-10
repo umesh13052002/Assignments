@@ -27,7 +27,7 @@
     }
 
     #container {
-        padding: 20px;
+        padding: 3vw 6.5vw;
         border: 2px dashed #09a4a1;
         min-width: 35vw;
         display: flex;
@@ -136,7 +136,7 @@
         var message = "";
         let current = 2;
         var inp = document.querySelectorAll("input");
-        
+
         function addMore() {
             current++;
             var addMsg = document.getElementById("addMsg");
@@ -157,7 +157,6 @@
             }
             else {
                 alert("You Can Not Add More Numbers");
-
             }
 
         }
@@ -168,7 +167,7 @@
             let op3 = document.getElementById("op3");
             let op4 = document.getElementById("op4");
             let sum = 0;
-            if(isNaN(inp)){
+            if (isNaN(inp)) {
                 message = "Please Enter a valid Number";
                 output.innerHTML = message;
             }
@@ -196,7 +195,7 @@
                 output.innerHTML = message;
             }
 
-           else if (op3.checked) {
+            else if (op3.checked) {
                 let produduct = 1;
                 for (let i = 0; i < values.length; i++) {
                     produduct *= values[i];
@@ -204,13 +203,12 @@
                 message = produduct;
                 output.innerHTML = message;
             }
-           else  if (op4.checked) {
+            else if (op4.checked) {
                 let quot = values[0];
                 for (let i = 1; i < values.length; i++) {
                     if (quot != 0) {
                         quot /= values[i];
                     }
-
                 }
                 message = quot;
                 output.innerHTML = message;
@@ -219,7 +217,6 @@
                 message = "Please Select any one Operator";
                 output.innerHTML = message;
             }
-
         }
 
     </script>
