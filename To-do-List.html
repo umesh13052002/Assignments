@@ -155,7 +155,7 @@
     <script>
         const input = document.getElementById("input");
         const list_container = document.getElementById("list_container");
-        const mini_container = document.getElementById("mini_container");
+        const mini = document.getElementsByClassName("mini");
 
         function addTask(){
             if(input.value == ""){
@@ -166,7 +166,7 @@
                 li.innerHTML = input.value;
                 let div = document.createElement("div");
                 list_container.appendChild(div);
-                div.setAttribute("id", "mini");
+                li.setAttribute("class", "mini");
                 div.appendChild(li);
                 let cross = document.createElement("span");
                 cross.innerHTML = "\u00d7";
@@ -189,7 +189,11 @@
         } ,false);
 
         function saveData(){
-            localStorage.setItem("data", list_container.innerHTML);
+            
+            for(let i = 0; i<mini.length; i++){
+                var miniInnerHTML = mini[i].innerHTML;
+                localStorage.setItem("data", miniInnerHTML);
+            }
         }
 
     </script>
